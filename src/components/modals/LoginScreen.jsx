@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Page, LoginScreen, LoginScreenTitle, List, ListItem, Label, Input, ListButton, BlockFooter, Navbar, NavRight, Link, Icon } from 'framework7-react'
 import { showAlert } from 'framework7-redux'
-import { goBackNav } from '../../actions'
+import { goBackNav, menuToSignUpNav } from '../../actions'
 
 export const login = () => {
   return (dispatch, getState) => {
@@ -16,7 +16,7 @@ export const login = () => {
 
 class LoginScreenPopup extends Component {
   render () {
-    const { onUsernameUpdated, onPasswordUpdated, onLogin, username, password, closeLogin } = this.props
+    const { onGoToSignUp, onUsernameUpdated, onPasswordUpdated, onLogin, username, password, closeLogin } = this.props
     return (
       <LoginScreen id='login-screen'>
         <View>
@@ -52,14 +52,14 @@ class LoginScreenPopup extends Component {
               </ListItem>
             </List>
             <List>
-              <ListButton title='Log In' onClick={onLogin}/>
-              <ListButton title='Sign Up' onClick={onLogin}/>
+              <ListButton title='Log In' onClick={onLogin} />
+              <ListButton title='Sign Up' onClick={onGoToSignUp} />
             </List>
             <BlockFooter>
               <p>Click Sign In to see if you entered the correct password</p>
             </BlockFooter>
             <List>
-              <ListButton title='Cancel' onClick={closeLogin}/>
+              <ListButton title='Cancel' onClick={closeLogin} />
             </List>
           </Page>
         </View>
@@ -75,7 +75,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, { service }) => {
   return {
     onLogin: () => dispatch(login()),
-    closeLogin: () => dispatch(goBackNav())
+    closeLogin: () => dispatch(goBackNav()),
+    onGoToSignUp: () => dispatch(menuToSignUpNav()),
   }
 }
 

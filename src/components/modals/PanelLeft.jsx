@@ -1,39 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Panel, Page, Navbar, List, ListItem } from 'framework7-react'
-import { navigateTo, goBack } from 'framework7-redux'
-
-export const goToAbout = () => navigateTo('/about/')
-export const openPanelLeft = () => navigateTo('/panel-left/')
-export const closePanelLeft = () => goBack()
-
-export const goToAboutPageFromLeftPanel = () => {
-  return (dispatch) => {
-    dispatch(closePanelLeft())
-    dispatch(goToAbout())
-  }
-}
-
-export const goToFormPageFromLeftPanel = () => {
-  return (dispatch) => {
-    dispatch(closePanelLeft())
-  }
-}
+import { goBackNav, menuToAboutNav, menuToHomeNav, menuToLoginNav, menuToSignUpNav } from '../../actions'
 
 class PanelLeft extends Component {
   render () {
-    const { onGoToAbout, onClosePanelLeft } = this.props
+    const { onGoToAbout, onGoToHome, onGoToLogin, onClosePanelLeft, onGoToSignUp } = this.props
     return (
       <Panel left cover themeDark onPanelBackdropClick={onClosePanelLeft}>
         <Page>
           <Navbar title='Menu' />
           <List>
-            <ListItem link title='Home' onClick={onGoToAbout} />
+            <ListItem link title='Home' onClick={onGoToHome} />
             <ListItem link title='About' onClick={onGoToAbout} />
           </List>
           <List>
-            <ListItem link title='Login' onClick={onGoToAbout} />
-            <ListItem link title='Sign Up' onClick={onGoToAbout} />
+            <ListItem link title='Login' onClick={onGoToLogin} />
+            <ListItem link title='Sign Up' onClick={onGoToSignUp} />
           </List>
         </Page>
       </Panel>
@@ -47,9 +30,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClosePanelLeft: () => dispatch(closePanelLeft()),
-    onGoToAbout: () => dispatch(goToAboutPageFromLeftPanel()),
-    onGoToForm: () => dispatch(goToFormPageFromLeftPanel())
+    onClosePanelLeft: () => dispatch(goBackNav()),
+    onGoToAbout: () => dispatch(menuToAboutNav()),
+    onGoToLogin: () => dispatch(menuToLoginNav()),
+    onGoToSignUp: () => dispatch(menuToSignUpNav()),
+    onGoToHome: () => dispatch(menuToHomeNav()),
   }
 }
 

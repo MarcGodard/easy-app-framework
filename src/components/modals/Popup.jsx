@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Popup, View, Page, Navbar, NavRight, Link, Block, Icon } from 'framework7-react'
 import { goBackNav } from '../../actions'
 
-class SignUpPopup extends Component {
+class PopupPopup extends Component {
   render () {
     const { onClosePopup } = this.props
     return (
@@ -35,4 +35,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpPopup)
+export default connect(mapStateToProps, mapDispatchToProps)(PopupPopup)
