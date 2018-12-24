@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Panel, Page, Navbar, List, ListItem } from 'framework7-react'
-import { goBackNav, menuToAboutNav, menuToHomeNav, menuToLoginNav, menuToSignUpNav } from '../../actions'
+import { goBackNav, menuToAboutNav, menuToLoginNav, menuToSignUpNav } from '../../actions'
 
 class PanelLeft extends Component {
   render () {
-    const { onGoToAbout, onGoToHome, onGoToLogin, onClosePanelLeft, onGoToSignUp } = this.props
+    const { onGoToAbout, onGoToLogin, onClosePanelLeft, onGoToSignUp } = this.props
     return (
       <Panel left cover themeDark onPanelBackdropClick={onClosePanelLeft}>
         <Page>
           <Navbar title='Menu' />
           <List>
-            <ListItem link title='Home' onClick={onGoToHome} />
             <ListItem link title='About' onClick={onGoToAbout} />
           </List>
           <List>
@@ -34,7 +33,6 @@ const mapDispatchToProps = (dispatch) => {
     onGoToAbout: () => dispatch(menuToAboutNav()),
     onGoToLogin: () => dispatch(menuToLoginNav()),
     onGoToSignUp: () => dispatch(menuToSignUpNav()),
-    onGoToHome: () => dispatch(menuToHomeNav()),
   }
 }
 

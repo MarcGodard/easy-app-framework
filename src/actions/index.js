@@ -14,13 +14,6 @@ export const menuToAboutNav = () => {
   }
 }
 
-export const menuToHomeNav = () => {
-  return (dispatch) => {
-    dispatch(goBackNav())
-    dispatch(goHomeNav())
-  }
-}
-
 export const menuToLoginNav = () => {
   return (dispatch) => {
     dispatch(goBackNav())
