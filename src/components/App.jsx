@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import { Provider } from 'react-redux'
-import { App, View, Statusbar } from 'framework7-react';
+import { App, View, Statusbar } from 'framework7-react'
 
-import routes from '../routes';
-import { store, stateKernel } from '../store';
+import routes from '../routes'
+import { store, stateKernel } from '../store'
 
 // Framework7 parameters here
 const f7params = {
@@ -18,22 +18,22 @@ const f7params = {
   clicks: {
     externalLinks: 'a[href="#"]'
   },
-  // Disable F7 automated routing for backdrops    
+  // Disable F7 automated routing for backdrops
   panel: {
     closeByBackdropClick: false
   },
   popup: {
     closeByBackdropClick: false
   }
-};
+}
 
 export default () => {
   return (
     <Provider store={store}>
       <App params={f7params}>
         <Statusbar />
-        <View id="main-view" url="/" main className="ios-edges"/>
+        <View id='main-view' url='/' main className='ios-edges' />
       </App>
     </Provider>
-  );
-};
+  )
+}

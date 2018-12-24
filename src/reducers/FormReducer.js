@@ -13,68 +13,68 @@ const initialState = {
   checkboxGroup: {
     checkbox1: false,
     checkbox2: false,
-    checkbox3: false,
+    checkbox3: false
   },
   radioButtonsGroup: 0
-};
-  
+}
+
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'FORM_NAME_UPDATED':
       return {
         ...state,
         name: action.payload
-      };
+      }
     case 'FORM_EMAIL_UPDATED':
       return {
         ...state,
         email: action.payload
-      };
+      }
     case 'FORM_URL_UPDATED':
       return {
         ...state,
         url: action.payload
-      };
+      }
     case 'FORM_PASSWORD_UPDATED':
       return {
         ...state,
         password: action.payload
-      };
+      }
     case 'FORM_PHONE_UPDATED':
       return {
         ...state,
         phone: action.payload
-      };
+      }
     case 'FORM_GENDER_UPDATED':
       return {
         ...state,
         gender: action.payload
-      };
+      }
     case 'FORM_BIRTHDATE_UPDATED':
       return {
         ...state,
         birthdate: action.payload
-      };
+      }
     case 'FORM_TOGGLE_UPDATED':
       return {
         ...state,
         toggle: !state.toggle
-      };
+      }
     case 'FORM_SLIDER_UPDATED':
       return {
         ...state,
         slider: action.payload
-      };
+      }
     case 'FORM_TEXTAREA_UPDATED':
       return {
         ...state,
         textArea: action.payload
-      };
+      }
     case 'FORM_RESIZABLE_UPDATED':
       return {
         ...state,
         resizable: action.payload
-      };
+      }
     case 'FORM_CHECKBOX_UPDATED':
       return {
         ...state,
@@ -82,13 +82,13 @@ export default (state = initialState, action) => {
           ...state.checkboxGroup,
           [`checkbox${action.payload}`]: !state.checkboxGroup[`checkbox${action.payload}`]
         }
-      };  
+      }
     case 'FORM_RADIO_BUTTON_UPDATED':
       return {
         ...state,
         radioButtonsGroup: action.payload
-      };        
+      }
     default:
-      return state;
+      return state
   }
-};
+}

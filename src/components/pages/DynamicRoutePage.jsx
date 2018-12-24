@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Page, Navbar, Block, Link } from 'framework7-react';
+import React, { Component } from 'react' // eslint-disable-line
+import { Page, Navbar, Block, Link } from 'framework7-react'
 
 export default ({ onGoBackToHomePage, url, path, hash, query }) => (
   <Page>
-    <Navbar title="Dynamic Route" backLink="Back" onBackClick={onGoBackToHomePage} />
+    <Navbar title='Dynamic Route' backLink='Back' onBackClick={onGoBackToHomePage} />
     <Block strong>
       <ul>
         <li><b>Url:</b> {url}</li>
@@ -22,4 +22,4 @@ export default ({ onGoBackToHomePage, url, path, hash, query }) => (
       <Link onClick={onGoBackToHomePage}>Go back to home page</Link>
     </Block>
   </Page>
-);
+)

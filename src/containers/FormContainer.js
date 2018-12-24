@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import FormPage from '../components/pages/FormPage';
+import FormPage from '../components/pages/FormPage'
 import {
   goBackToHomePage,
   nameUpdated,
@@ -16,12 +16,12 @@ import {
   resizableUpdated,
   checkboxUpdated,
   radioButtonUpdated
-} from '../actions/FormActions';
-import { getFormData } from '../selectors/FormSelectors';
+} from '../actions/FormActions'
+import { getFormData } from '../selectors/FormSelectors'
 
 const mapStateToProps = (state) => {
-  return getFormData(state);
-};
+  return getFormData(state)
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch) => {
     onResizableUpdated: (text) => dispatch(resizableUpdated(text)),
     onCheckboxUpdated: (checkbox) => dispatch(checkboxUpdated(checkbox)),
     onRadioButtonUpdated: (radioButton) => dispatch(radioButtonUpdated(radioButton))
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FormPage)

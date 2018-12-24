@@ -1,41 +1,41 @@
-import HomeContainer from './containers/HomeContainer';
-import AboutContainer from './containers/AboutContainer';
-import FormContainer from './containers/FormContainer';
-import DynamicRouteContainer from './containers/DynamicRouteContainer';
-import NotFoundContainer from './containers/DefaultRouteContainer';
-import PanelLeftContainer from './containers/PanelLeftContainer';
-import PanelRightContainer from './containers/PanelRightContainer';
-import LoginContainer from './containers/LoginContainer';
-import PopupContainer from './containers/PopupContainer';
+import HomeContainer from './containers/HomeContainer'
+import AboutContainer from './containers/AboutContainer'
+import FormContainer from './containers/FormContainer'
+import DynamicRouteContainer from './containers/DynamicRouteContainer'
+import NotFoundContainer from './containers/DefaultRouteContainer'
+import PanelLeftContainer from './containers/PanelLeftContainer'
+import PanelRightContainer from './containers/PanelRightContainer'
+import LoginContainer from './containers/LoginContainer'
+import PopupContainer from './containers/PopupContainer'
 
 export default [
   {
     path: '/',
-    component: HomeContainer,
+    component: HomeContainer
   },
   {
     path: '/panel-left/',
     panel: {
-      component: PanelLeftContainer,
-    },
+      component: PanelLeftContainer
+    }
   },
   {
     path: '/panel-right/',
     panel: {
-      component: PanelRightContainer,
-    },
+      component: PanelRightContainer
+    }
   },
   {
     path: '/about/',
-    component: AboutContainer,
+    component: AboutContainer
   },
   {
     path: '/form/',
-    component: FormContainer,
+    component: FormContainer
   },
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
-    component: DynamicRouteContainer,
+    component: DynamicRouteContainer
   },
   {
     path: '/login/',
@@ -51,6 +51,6 @@ export default [
   },
   {
     path: '(.*)',
-    component: NotFoundContainer,
-  },
-];
+    component: NotFoundContainer
+  }
+]

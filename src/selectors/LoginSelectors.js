@@ -1,11 +1,11 @@
 export const getUsername = (state) => {
-  return state.login.username;
-};
+  return state.login.username
+}
 
 export const getPassword = (state) => {
-  return state.login.password;
-};
+  return state.login.password
+}
 
 export const loginValid = (state) => {
-  return getPassword(state) === 'password!';
-};
+  return getPassword(state) === 'password!'
+}
