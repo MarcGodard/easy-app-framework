@@ -32,7 +32,7 @@ const mapDispatchToProps = (dispatch) => {
     onClosePanelLeft: () => dispatch(goBackNav()),
     onGoToAbout: () => dispatch(menuToAboutNav()),
     onGoToLogin: () => dispatch(menuToLoginNav()),
-    onGoToSignUp: () => dispatch(menuToSignUpNav()),
+    onGoToSignUp: () => dispatch(menuToSignUpNav())
   }
 }
 

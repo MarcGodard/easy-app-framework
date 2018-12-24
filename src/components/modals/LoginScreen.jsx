@@ -76,7 +76,7 @@ const mapDispatchToProps = (dispatch, { service }) => {
   return {
     onLogin: () => dispatch(login()),
     closeLogin: () => dispatch(goBackNav()),
-    onGoToSignUp: () => dispatch(menuToSignUpNav()),
+    onGoToSignUp: () => dispatch(menuToSignUpNav())
   }
 }
 

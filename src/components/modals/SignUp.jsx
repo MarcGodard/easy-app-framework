@@ -52,7 +52,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onClosePopup: () => dispatch(goBackNav()),
     onEmailUpdated: (email) => {},
-    onOpenTerms: () => dispatch(goBackNav()),
+    onOpenTerms: () => dispatch(goBackNav())
   }
 }
 

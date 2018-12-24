@@ -7,5 +7,5 @@ export default [
   reduxThunk, // Thunk middleware for Redux
   reduxMulti, // Dispatch multiple actions
   reduxPromiseMiddleware(), // Resolve, reject promises with conditional optimistic updates
-  logger, // A basic middleware logger
+  logger // A basic middleware logger
 ]
