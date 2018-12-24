@@ -1,5 +1,5 @@
 import HomeContainer from '../containers/HomeContainer'
-import AboutContainer from '../containers/AboutContainer'
+import AboutPage from '../components/pages/AboutPage'
 import NotFoundContainer from '../containers/DefaultRouteContainer'
 import PanelLeftMenu from '../components/modals/PanelLeft'
 import LoginScreen from '../components/modals/LoginScreen'
@@ -18,7 +18,7 @@ export default [
   },
   {
     path: '/about/',
-    component: AboutContainer
+    component: AboutPage
   },
   {
     path: '/login/',
