@@ -13,7 +13,6 @@ import reduxifyAuthentication from 'feathers-reduxify-authentication'
 const socket = io('http://localhost:3030')
 const feathersClient = feathers()
   .configure(feathers.socketio(socket))
-  .configure(feathers.hooks())
   .configure(feathers.authentication({
     storage: window.localStorage
   }))
@@ -30,14 +29,14 @@ export const stateKernel = new Framework7StateKernel()
 
 // Configure realtime & connect it to services
 const users = feathersClient.service('/users')
-const usersRealTime = new RealTime(users, {})
+const usersRealtime = new RealTime(users, {})
 
-usersRealTime.on('events', (records, last) => {
-  store.dispatch(services.users.store({ connected: usersRealTime.connected, last, records }))
+usersRealtime.on('events', (records, last) => {
+  store.dispatch(services.users.store({ connected: usersRealtime.connected, last, records }))
 })
 
 // Enable realtime. It will start with a snapshot.
-usersRealTime.connect()
+usersRealtime.connect()
   .then(() => console.log('RealTime replication started'))
 
 export const store = createStore(

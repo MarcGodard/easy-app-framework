@@ -3,37 +3,15 @@ import { connect } from 'react-redux'
 import { View, Page, LoginScreen, LoginScreenTitle, List, ListItem, Label, Input, ListButton, BlockFooter, Navbar, NavRight, Link, Icon } from 'framework7-react'
 import { goBack, showAlert } from 'framework7-redux'
 
-export const getUsername = (state) => {
-  return state.login.username
-}
-
-export const getPassword = (state) => {
-  return state.login.password
-}
-
-export const loginValid = (state) => {
-  return getPassword(state) === 'password!'
-}
-
 export const closeLogin = () => goBack()
-
-export const usernameUpdated = (username) => ({
-  type: 'USERNAME_UPDATED',
-  payload: username
-})
-
-export const passwordUpdated = (password) => ({
-  type: 'PASSWORD_UPDATED',
-  payload: password
-})
 
 export const login = () => {
   return (dispatch, getState) => {
-    if (loginValid(getState())) {
-      dispatch(closeLogin())
-    } else {
-      dispatch(showAlert('Incorrect password! Hint: please enter "password!".', 'Failed Login'))
-    }
+    // if (loginValid(getState())) {
+    //   dispatch(closeLogin())
+    // } else {
+    dispatch(showAlert('Incorrect password! Hint: please enter "password!".', 'Failed Login'))
+    // }
   }
 }
 
@@ -92,15 +70,11 @@ class LoginScreenPopup extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  reduxState: state,
-  username: getUsername(state),
-  password: getPassword(state)
+  reduxState: state
 })
 
 const mapDispatchToProps = (dispatch, { service }) => {
   return {
-    onUsernameUpdated: (username) => dispatch(usernameUpdated(username)),
-    onPasswordUpdated: (password) => dispatch(passwordUpdated(password)),
     onLogin: () => dispatch(login()),
     closeLogin: () => dispatch(closeLogin())
   }

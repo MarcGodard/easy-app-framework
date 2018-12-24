@@ -1,7 +1,7 @@
 import HomeContainer from '../containers/HomeContainer'
 import AboutContainer from '../containers/AboutContainer'
 import NotFoundContainer from '../containers/DefaultRouteContainer'
-import PanelLeftContainer from '../containers/PanelLeftContainer'
+import PanelLeftMenu from '../components/modals/PanelLeft'
 import LoginScreen from '../components/modals/LoginScreen'
 import Popup from '../components/modals/Popup'
 
@@ -13,7 +13,7 @@ export default [
   {
     path: '/panel-left/',
     panel: {
-      component: PanelLeftContainer
+      component: PanelLeftMenu
     }
   },
   {
