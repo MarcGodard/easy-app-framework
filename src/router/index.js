@@ -1,6 +1,6 @@
 import HomeContainer from '../containers/HomeContainer'
 import AboutPage from '../components/pages/AboutPage'
-import NotFoundContainer from '../containers/DefaultRouteContainer'
+import NotFoundPage from '../components/pages/NotFoundPage'
 import PanelLeftMenu from '../components/modals/PanelLeft'
 import LoginScreen from '../components/modals/LoginScreen'
 import Popup from '../components/modals/Popup'
@@ -34,6 +34,6 @@ export default [
   },
   {
     path: '(.*)',
-    component: NotFoundContainer
+    component: NotFoundPage
   }
 ]

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 
 import HomePage from '../components/pages/HomePage'
-import { goToDefaultRoute } from '../actions/DefaultRouteActions'
 import { navigateTo } from 'framework7-redux/dist/index'
 
+export const goToDefaultRoute = () => navigateTo('/load-something-that-doesnt-exist/')
 export const goToAbout = () => navigateTo('/about/')
 export const openPanelLeft = () => navigateTo('/panel-left/')
 export const openLogin = () => navigateTo('/login/')

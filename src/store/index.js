@@ -27,6 +27,7 @@ const feathersAuthentication = reduxifyAuthentication(feathersClient,
 // Create Redux actions and reducers for Feathers services
 const services = reduxifyServices(feathersClient, ['users'])
 
+// Framework7 state kernel
 export const stateKernel = new Framework7StateKernel()
 
 // Configure realtime & connect it to services
@@ -56,7 +57,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = createStore(
   combineReducers({
-    framework7: framework7Reducer,
+    framework7: framework7Reducer, // keep this reducer out of persisted store
     persistedReducer
   }),
   applyMiddleware(...middleware)
