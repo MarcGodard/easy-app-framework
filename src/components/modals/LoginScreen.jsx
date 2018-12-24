@@ -59,7 +59,7 @@ class LoginScreenPopup extends Component {
                   name='username'
                   placeholder='Username'
                   type='text'
-                  onChange={({target}) => onUsernameUpdated(target.value)}
+                  onChange={({ target }) => onUsernameUpdated(target.value)}
                   value={username}
                 />
               </ListItem>
@@ -69,7 +69,7 @@ class LoginScreenPopup extends Component {
                   name='password'
                   type='password'
                   placeholder='Password'
-                  onChange={({target}) => onPasswordUpdated(target.value)}
+                  onChange={({ target }) => onPasswordUpdated(target.value)}
                   value={password}
                 />
               </ListItem>

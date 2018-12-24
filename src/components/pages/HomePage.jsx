@@ -1,26 +1,7 @@
 import React from 'react'
-import {
-  Page,
-  Navbar,
-  NavLeft,
-  NavTitle,
-  Link,
-  Block,
-  BlockTitle,
-  List,
-  ListItem,
-  Row,
-  Col,
-  Button
-} from 'framework7-react'
+import { Page, Navbar, NavLeft, NavTitle, Link, Block, BlockTitle, List, ListItem, Row, Col, Button } from 'framework7-react'
 
-export default ({
-  onGoToAbout,
-  onGoToDefaultRoute,
-  onOpenLeftPanel,
-  onOpenPopup,
-  onOpenLoginScreen
-}) => (
+export default ({ onGoToAbout, onGoToDefaultRoute, onOpenLeftPanel, onOpenPopup, onOpenLoginScreen }) => (
   <Page>
     <Navbar>
       <NavLeft>
