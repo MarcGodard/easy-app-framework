@@ -1,12 +1,12 @@
-import HomeContainer from './containers/HomeContainer'
-import AboutContainer from './containers/AboutContainer'
-import FormContainer from './containers/FormContainer'
-import DynamicRouteContainer from './containers/DynamicRouteContainer'
-import NotFoundContainer from './containers/DefaultRouteContainer'
-import PanelLeftContainer from './containers/PanelLeftContainer'
-import PanelRightContainer from './containers/PanelRightContainer'
-import LoginContainer from './containers/LoginContainer'
-import PopupContainer from './containers/PopupContainer'
+import HomeContainer from '../containers/HomeContainer'
+import AboutContainer from '../containers/AboutContainer'
+import FormContainer from '../containers/FormContainer'
+import DynamicRouteContainer from '../containers/DynamicRouteContainer'
+import NotFoundContainer from '../containers/DefaultRouteContainer'
+import PanelLeftContainer from '../containers/PanelLeftContainer'
+import PanelRightContainer from '../containers/PanelRightContainer'
+import LoginContainer from '../containers/LoginContainer'
+import PopupContainer from '../containers/PopupContainer'
 
 export default [
   {

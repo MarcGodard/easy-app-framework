@@ -2,8 +2,8 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { App, View, Statusbar } from 'framework7-react'
 
-import routes from '../routes'
-import { store, stateKernel } from '../store'
+import routes from '../router/'
+import { store, stateKernel } from '../store/'
 
 // Framework7 parameters here
 const f7params = {
