@@ -3,16 +3,7 @@ import { connect } from 'react-redux'
 import { View, Page, LoginScreen, LoginScreenTitle, List, ListItem, Label, Input, ListButton, BlockFooter, Navbar, NavRight, Link, Icon } from 'framework7-react'
 import { showAlert } from 'framework7-redux'
 import { goBackNav, menuToSignUpNav } from '../../actions'
-
-export const login = () => {
-  return (dispatch, getState) => {
-    // if (loginValid(getState())) {
-    //   dispatch(closeLogin())
-    // } else {
-    dispatch(showAlert('Incorrect password! Hint: please enter "password!".', 'Failed Login'))
-    // }
-  }
-}
+import { feathersAuthentication } from '../../store'
 
 class LoginScreenPopup extends Component {
   render () {
@@ -74,7 +65,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, { service }) => {
   return {
-    onLogin: () => dispatch(login()),
+    onLogin: () => dispatch(feathersAuthentication.authenticate(
+      // { type: 'local', email: values.username, password: values.password }
+    )),
     closeLogin: () => dispatch(goBackNav()),
     onGoToSignUp: () => dispatch(menuToSignUpNav())
   }

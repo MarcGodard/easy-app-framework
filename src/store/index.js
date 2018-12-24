@@ -20,7 +20,7 @@ const feathersClient = feathers()
   }))
 
 // Reduxify feathers-authentication
-const feathersAuthentication = reduxifyAuthentication(feathersClient,
+export const feathersAuthentication = reduxifyAuthentication(feathersClient,
   { isUserAuthorized: (user) => user.isVerified } // user must be verified to authenticate
 )
 
