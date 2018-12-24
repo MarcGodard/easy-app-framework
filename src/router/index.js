@@ -1,7 +1,6 @@
 import HomeContainer from '../containers/HomeContainer'
 import AboutContainer from '../containers/AboutContainer'
 import FormContainer from '../containers/FormContainer'
-import DynamicRouteContainer from '../containers/DynamicRouteContainer'
 import NotFoundContainer from '../containers/DefaultRouteContainer'
 import PanelLeftContainer from '../containers/PanelLeftContainer'
 import LoginScreen from '../components/modals/LoginScreen'
@@ -25,10 +24,6 @@ export default [
   {
     path: '/form/',
     component: FormContainer
-  },
-  {
-    path: '/dynamic-route/blog/:blogId/post/:postId/',
-    component: DynamicRouteContainer
   },
   {
     path: '/login/',

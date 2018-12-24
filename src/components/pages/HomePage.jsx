@@ -58,7 +58,6 @@ export default ({
       </Row>
     </Block>
     <List>
-      <ListItem link onClick={onGoToDynamicRoute} title='Dynamic Route' />
       <ListItem link onClick={onGoToDefaultRoute} title='Default Route (404)' />
     </List>
   </Page>
