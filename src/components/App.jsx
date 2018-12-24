@@ -3,7 +3,8 @@ import { Provider } from 'react-redux'
 import { App, View, Statusbar } from 'framework7-react'
 
 import routes from '../router/'
-import { store, stateKernel } from '../store/'
+import { store, stateKernel, persistor } from '../store/'
+import { PersistGate } from 'redux-persist/integration/react'
 
 // Framework7 parameters here
 const f7params = {
@@ -30,10 +31,12 @@ const f7params = {
 export default () => {
   return (
     <Provider store={store}>
-      <App params={f7params}>
-        <Statusbar />
-        <View id='main-view' url='/' main className='ios-edges' />
-      </App>
+      <PersistGate loading={null} persistor={persistor}>
+        <App params={f7params}>
+          <Statusbar />
+          <View id='main-view' url='/' main className='ios-edges' />
+        </App>
+      </PersistGate>
     </Provider>
   )
 }
