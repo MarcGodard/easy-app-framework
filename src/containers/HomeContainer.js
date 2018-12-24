@@ -6,9 +6,10 @@ import { goToForm } from '../actions/FormActions'
 import { goToDynamicRoute } from '../actions/DynamicRouteActions'
 import { goToDefaultRoute } from '../actions/DefaultRouteActions'
 import { openPanelLeft } from '../actions/PanelLeftActions'
-import { openPanelRight } from '../actions/PanelRightActions'
 import { openPopup } from '../actions/PopupActions'
-import { openLogin } from '../actions/LoginActions'
+import { navigateTo } from 'framework7-redux/dist/index'
+
+export const openLogin = () => navigateTo('/login/')
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -17,7 +18,6 @@ const mapDispatchToProps = (dispatch) => {
     onGoToDynamicRoute: () => dispatch(goToDynamicRoute()),
     onGoToDefaultRoute: () => dispatch(goToDefaultRoute()),
     onOpenLeftPanel: () => dispatch(openPanelLeft()),
-    onOpenRightPanel: () => dispatch(openPanelRight()),
     onOpenPopup: () => dispatch(openPopup()),
     onOpenLoginScreen: () => dispatch(openLogin())
   }

@@ -4,8 +4,7 @@ import FormContainer from '../containers/FormContainer'
 import DynamicRouteContainer from '../containers/DynamicRouteContainer'
 import NotFoundContainer from '../containers/DefaultRouteContainer'
 import PanelLeftContainer from '../containers/PanelLeftContainer'
-import PanelRightContainer from '../containers/PanelRightContainer'
-import LoginContainer from '../containers/LoginContainer'
+import LoginScreen from '../components/modals/LoginScreen'
 import PopupContainer from '../containers/PopupContainer'
 
 export default [
@@ -17,12 +16,6 @@ export default [
     path: '/panel-left/',
     panel: {
       component: PanelLeftContainer
-    }
-  },
-  {
-    path: '/panel-right/',
-    panel: {
-      component: PanelRightContainer
     }
   },
   {
@@ -40,7 +33,7 @@ export default [
   {
     path: '/login/',
     loginScreen: {
-      component: LoginContainer
+      component: LoginScreen
     }
   },
   {

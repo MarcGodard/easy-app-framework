@@ -4,7 +4,6 @@ import {
   Navbar,
   NavLeft,
   NavTitle,
-  NavRight,
   Link,
   Toolbar,
   Block,
@@ -22,7 +21,6 @@ export default ({
   onGoToDynamicRoute,
   onGoToDefaultRoute,
   onOpenLeftPanel,
-  onOpenRightPanel,
   onOpenPopup,
   onOpenLoginScreen
 }) => (
@@ -32,9 +30,6 @@ export default ({
         <Link iconIos='f7:menu' iconMd='material:menu' link onClick={onOpenLeftPanel} />
       </NavLeft>
       <NavTitle>My App</NavTitle>
-      <NavRight>
-        <Link iconIos='f7:menu' iconMd='material:menu' link onClick={onOpenRightPanel} />
-      </NavRight>
     </Navbar>
     <Toolbar>
       <Link>Left Link</Link>
@@ -64,9 +59,6 @@ export default ({
       <Row>
         <Col width='50'>
           <Button fill raised onClick={onOpenLeftPanel}>Left Panel</Button>
-        </Col>
-        <Col width='50'>
-          <Button fill raised onClick={onOpenRightPanel}>Right Panel</Button>
         </Col>
       </Row>
     </Block>
