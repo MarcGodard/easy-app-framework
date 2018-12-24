@@ -5,30 +5,46 @@ import middleware from '../middleware'
 // feathers imports
 import io from 'socket.io-client'
 import feathers from '@feathersjs/client'
+import RealTime from 'feathers-offline-realtime'
 import reduxifyServices from 'feathers-redux'
-
-// Reducer imports
-import loginReducer from '../reducers/LoginReducer'
+import reduxifyAuthentication from 'feathers-reduxify-authentication'
 
 // setup feathers
-const socket = io('http://localhost:3030');
+const socket = io('http://localhost:3030')
 const feathersClient = feathers()
+  .configure(feathers.socketio(socket))
+  .configure(feathers.hooks())
+  .configure(feathers.authentication({
+    storage: window.localStorage
+  }))
 
-feathersClient.configure(feathers.socketio(socket))
-feathersClient.configure(feathers.authentication({
-  storage: window.localStorage
-}))
+// Reduxify feathers-authentication
+const feathersAuthentication = reduxifyAuthentication(feathersClient,
+  { isUserAuthorized: (user) => user.isVerified } // user must be verified to authenticate
+)
 
 // Create Redux actions and reducers for Feathers services
 const services = reduxifyServices(feathersClient, ['users'])
 
 export const stateKernel = new Framework7StateKernel()
 
+// Configure realtime & connect it to services
+const users = feathersClient.service('/users')
+const usersRealTime = new RealTime(users, {})
+
+usersRealTime.on('events', (records, last) => {
+  store.dispatch(services.users.store({ connected: usersRealTime.connected, last, records }))
+})
+
+// Enable realtime. It will start with a snapshot.
+usersRealTime.connect()
+  .then(() => console.log('RealTime replication started'))
+
 export const store = createStore(
   combineReducers({
     framework7: framework7Reducer,
-    users: services.users.reducer,
-    login: loginReducer
+    auth: feathersAuthentication.reducer,
+    users: services.users.reducer
   }),
   applyMiddleware(...middleware)
 )
