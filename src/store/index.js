@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Framework7StateKernel, framework7Reducer, syncFramework7WithStore } from 'framework7-redux'
-import thunk from 'redux-thunk'
+import middleware from '../middleware'
 
 import loginReducer from '../reducers/LoginReducer'
 import formReducer from '../reducers/FormReducer'
@@ -13,7 +13,7 @@ export const store = createStore(
     login: loginReducer,
     form: formReducer
   }),
-  applyMiddleware(thunk)
+  applyMiddleware(...middleware)
 )
 
 syncFramework7WithStore(store, stateKernel)
