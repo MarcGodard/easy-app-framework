@@ -5,7 +5,7 @@ import DynamicRouteContainer from '../containers/DynamicRouteContainer'
 import NotFoundContainer from '../containers/DefaultRouteContainer'
 import PanelLeftContainer from '../containers/PanelLeftContainer'
 import LoginScreen from '../components/modals/LoginScreen'
-import PopupContainer from '../containers/PopupContainer'
+import Popup from '../components/modals/Popup'
 
 export default [
   {
@@ -39,7 +39,7 @@ export default [
   {
     path: '/popup/',
     popup: {
-      component: PopupContainer
+      component: Popup
     }
   },
   {

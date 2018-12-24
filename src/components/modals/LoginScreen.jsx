@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Page, LoginScreen, LoginScreenTitle, List, ListItem, Label, Input, ListButton, BlockFooter, Navbar, NavRight, Link } from 'framework7-react'
+import { View, Page, LoginScreen, LoginScreenTitle, List, ListItem, Label, Input, ListButton, BlockFooter, Navbar, NavRight, Link, Icon } from 'framework7-react'
 import { goBack, showAlert } from 'framework7-redux'
 
 export const getUsername = (state) => {
@@ -46,7 +46,9 @@ class LoginScreenPopup extends Component {
           <Page loginScreen>
             <Navbar title='Login'>
               <NavRight>
-                <Link onClick={closeLogin}>Cancel</Link>
+                <Link onClick={closeLogin}>
+                  <Icon f7='close' />
+                </Link>
               </NavRight>
             </Navbar>
             <LoginScreenTitle>Login</LoginScreenTitle>
@@ -90,6 +92,7 @@ class LoginScreenPopup extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  reduxState: state,
   username: getUsername(state),
   password: getPassword(state)
 })

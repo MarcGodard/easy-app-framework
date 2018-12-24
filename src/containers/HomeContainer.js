@@ -6,10 +6,10 @@ import { goToForm } from '../actions/FormActions'
 import { goToDynamicRoute } from '../actions/DynamicRouteActions'
 import { goToDefaultRoute } from '../actions/DefaultRouteActions'
 import { openPanelLeft } from '../actions/PanelLeftActions'
-import { openPopup } from '../actions/PopupActions'
 import { navigateTo } from 'framework7-redux/dist/index'
 
 export const openLogin = () => navigateTo('/login/')
+export const openPopup = () => navigateTo('/popup/')
 
 const mapDispatchToProps = (dispatch) => {
   return {

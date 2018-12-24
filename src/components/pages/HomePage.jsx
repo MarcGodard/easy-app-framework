@@ -5,7 +5,6 @@ import {
   NavLeft,
   NavTitle,
   Link,
-  Toolbar,
   Block,
   BlockTitle,
   List,
@@ -31,10 +30,6 @@ export default ({
       </NavLeft>
       <NavTitle>My App</NavTitle>
     </Navbar>
-    <Toolbar>
-      <Link>Left Link</Link>
-      <Link>Right Link</Link>
-    </Toolbar>
     <Block strong>
       <p>Here is your blank Framework7 app. Let's see what we have here.</p>
     </Block>
