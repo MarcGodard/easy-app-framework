@@ -54,6 +54,10 @@ class HomePage extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  reduxState: state
+})
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onGoToAbout: () => dispatch(goToAbout()),
@@ -64,4 +68,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(HomePage)
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

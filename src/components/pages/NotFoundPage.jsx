@@ -20,10 +20,14 @@ class NotFoundPage extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  reduxState: state
+})
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onGoBackToHomePage: () => dispatch(goBackToHomePage())
   }
 }
 
-export default connect(null, mapDispatchToProps)(NotFoundPage)
+export default connect(mapStateToProps, mapDispatchToProps)(NotFoundPage)

@@ -23,10 +23,14 @@ class AboutPage extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  reduxState: state
+})
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onGoBackToHomePage: () => dispatch(goBackToHomePage())
   }
 }
 
-export default connect(null, mapDispatchToProps)(AboutPage)
+export default connect(mapStateToProps, mapDispatchToProps)(AboutPage)

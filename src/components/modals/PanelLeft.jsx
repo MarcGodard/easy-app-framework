@@ -4,7 +4,6 @@ import { Panel, Page, Navbar, Block, BlockTitle, List, ListItem } from 'framewor
 import { navigateTo, goBack } from 'framework7-redux'
 
 export const goToAbout = () => navigateTo('/about/')
-
 export const openPanelLeft = () => navigateTo('/panel-left/')
 export const closePanelLeft = () => goBack()
 
@@ -27,19 +26,23 @@ class PanelLeft extends Component {
     return (
       <Panel left cover themeDark onPanelBackdropClick={onClosePanelLeft}>
         <Page>
-          <Navbar title='Left Panel'/>
-          <Block strong>
-            <p>Left panel content goes here</p>
-          </Block>
-          <BlockTitle>Load page in main view</BlockTitle>
+          <Navbar title='Menu' />
           <List>
             <ListItem link title='About' onClick={onGoToAbout} />
+          </List>
+          <List>
+            <ListItem link title='Login' onClick={onGoToAbout} />
+            <ListItem link title='Sign Up' onClick={onGoToAbout} />
           </List>
         </Page>
       </Panel>
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  reduxState: state
+})
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -49,4 +52,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(PanelLeft)
+export default connect(mapStateToProps, mapDispatchToProps)(PanelLeft)

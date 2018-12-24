@@ -28,6 +28,10 @@ class SignUpPopup extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  reduxState: state
+})
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onOpenPopup: () => dispatch(openPopup()),
@@ -35,4 +39,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(SignUpPopup)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpPopup)
