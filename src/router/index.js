@@ -1,4 +1,4 @@
-import HomeContainer from '../containers/HomeContainer'
+import HomePage from '../components/pages/HomePage'
 import AboutPage from '../components/pages/AboutPage'
 import NotFoundPage from '../components/pages/NotFoundPage'
 import PanelLeftMenu from '../components/modals/PanelLeft'
@@ -8,7 +8,7 @@ import Popup from '../components/modals/Popup'
 export default [
   {
     path: '/',
-    component: HomeContainer
+    component: HomePage
   },
   {
     path: '/panel-left/',

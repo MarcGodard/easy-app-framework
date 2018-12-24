@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Page, Navbar, Link, Block, BlockTitle } from 'framework7-react'
 import { goBack } from 'framework7-redux'
-import { connect } from 'react-redux'
 
 export const goBackToHomePage = () => goBack()
 
@@ -10,7 +10,7 @@ class AboutPage extends Component {
     const { onGoBackToHomePage } = this.props
     return (
       <Page>
-        <Navbar title='About' backLink='Back' onBackClick={onGoBackToHomePage}/>
+        <Navbar title='About' backLink='Back' onBackClick={onGoBackToHomePage} />
         <BlockTitle>About My App</BlockTitle>
         <Block strong>
           <p>Here is About page!</p>
