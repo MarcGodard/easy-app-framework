@@ -60,7 +60,8 @@ class LoginScreenPopup extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  reduxState: state
+  reduxState: state,
+  isAuthenticated: state.auth && state.auth.isSignedIn
 })
 
 const mapDispatchToProps = (dispatch, { service }) => {
