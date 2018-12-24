@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import LoginScreen from '../components/modals/LoginScreen'
-import { usernameUpdated, passwordUpdated, login } from '../actions/LoginActions'
+import { usernameUpdated, passwordUpdated, login, closeLogin } from '../actions/LoginActions'
 import { getUsername, getPassword } from '../selectors/LoginSelectors'
 
 const mapStateToProps = (state) => {
@@ -15,7 +15,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onUsernameUpdated: (username) => dispatch(usernameUpdated(username)),
     onPasswordUpdated: (password) => dispatch(passwordUpdated(password)),
-    onLogin: () => dispatch(login())
+    onLogin: () => dispatch(login()),
+    closeLogin: () => dispatch(closeLogin())
   }
 }
 
