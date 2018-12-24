@@ -1,11 +1,11 @@
-# Framework7 v3 Redux App Template
+# Framework7 v3 React Redux FeathersJS App Template
 
 This template leverages the [framework7-redux](https://github.com/bencompton/framework7-redux) plug-in and demonstrates creating an app with Framework7, React, and Redux.
 
 To get started, clone this repo as whatever you want to name your app:
 
 ```
-git clone https://github.com/framework7io/framework7-react-app-template/ my-app
+git clone https://github.com/MarcGodard/easy-app-framework my-app
 ```
 
 Running the app:
