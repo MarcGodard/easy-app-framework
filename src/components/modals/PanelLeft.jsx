@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Panel, Page, Navbar, Block, BlockTitle, List, ListItem } from 'framework7-react'
+import { Panel, Page, Navbar, List, ListItem } from 'framework7-react'
 import { navigateTo, goBack } from 'framework7-redux'
 
 export const goToAbout = () => navigateTo('/about/')
@@ -28,6 +28,7 @@ class PanelLeft extends Component {
         <Page>
           <Navbar title='Menu' />
           <List>
+            <ListItem link title='Home' onClick={onGoToAbout} />
             <ListItem link title='About' onClick={onGoToAbout} />
           </List>
           <List>

@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Page, LoginScreen, LoginScreenTitle, List, ListItem, Label, Input, ListButton, BlockFooter, Navbar, NavRight, Link, Icon } from 'framework7-react'
-import { goBack, showAlert } from 'framework7-redux'
-
-export const closeLogin = () => goBack()
+import { showAlert } from 'framework7-redux'
+import { goBackNav } from '../../actions'
 
 export const login = () => {
   return (dispatch, getState) => {
@@ -76,7 +75,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch, { service }) => {
   return {
     onLogin: () => dispatch(login()),
-    closeLogin: () => dispatch(closeLogin())
+    closeLogin: () => dispatch(goBackNav())
   }
 }
 

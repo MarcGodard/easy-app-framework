@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Page, Navbar, Link, Block, BlockTitle } from 'framework7-react'
-import { goBack } from 'framework7-redux'
-
-export const goBackToHomePage = () => goBack()
+import { goBackNav } from '../../actions'
 
 class AboutPage extends Component {
   render () {
@@ -29,7 +27,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onGoBackToHomePage: () => dispatch(goBackToHomePage())
+    onGoBackToHomePage: () => dispatch(goBackNav())
   }
 }
 

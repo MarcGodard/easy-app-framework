@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Popup, View, Page, Navbar, NavRight, Link, Block, Icon } from 'framework7-react'
-import { navigateTo, goBack } from 'framework7-redux'
-
-export const openPopup = () => navigateTo('/popup/')
-export const closePopup = () => goBack()
+import { goBackNav } from '../../actions'
 
 class SignUpPopup extends Component {
   render () {
@@ -34,8 +31,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onOpenPopup: () => dispatch(openPopup()),
-    onClosePopup: () => dispatch(closePopup())
+    onClosePopup: () => dispatch(goBackNav())
   }
 }
 
