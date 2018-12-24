@@ -16,8 +16,6 @@ import {
 
 export default ({
   onGoToAbout,
-  onGoToForm,
-  onGoToDynamicRoute,
   onGoToDefaultRoute,
   onOpenLeftPanel,
   onOpenPopup,
@@ -36,7 +34,6 @@ export default ({
     <BlockTitle>Navigation</BlockTitle>
     <List>
       <ListItem link onClick={onGoToAbout} title='About' />
-      <ListItem link onClick={onGoToForm} title='Form' />
     </List>
     <BlockTitle>Modals</BlockTitle>
     <Block strong>

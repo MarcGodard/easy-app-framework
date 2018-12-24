@@ -1,6 +1,5 @@
 import HomeContainer from '../containers/HomeContainer'
 import AboutContainer from '../containers/AboutContainer'
-import FormContainer from '../containers/FormContainer'
 import NotFoundContainer from '../containers/DefaultRouteContainer'
 import PanelLeftContainer from '../containers/PanelLeftContainer'
 import LoginScreen from '../components/modals/LoginScreen'
@@ -20,10 +19,6 @@ export default [
   {
     path: '/about/',
     component: AboutContainer
-  },
-  {
-    path: '/form/',
-    component: FormContainer
   },
   {
     path: '/login/',

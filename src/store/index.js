@@ -9,7 +9,6 @@ import reduxifyServices from 'feathers-redux'
 
 // Reducer imports
 import loginReducer from '../reducers/LoginReducer'
-import formReducer from '../reducers/FormReducer'
 
 // setup feathers
 const socket = io('http://localhost:3030');
@@ -29,8 +28,7 @@ export const store = createStore(
   combineReducers({
     framework7: framework7Reducer,
     users: services.users.reducer,
-    login: loginReducer,
-    form: formReducer
+    login: loginReducer
   }),
   applyMiddleware(...middleware)
 )

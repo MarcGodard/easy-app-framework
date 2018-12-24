@@ -1,7 +1,7 @@
 import React from 'react'
 import { Panel, Page, Navbar, Block, BlockTitle, List, ListItem } from 'framework7-react'
 
-export default ({ onGoToAbout, onGoToForm, onClosePanelLeft }) => (
+export default ({ onGoToAbout, onClosePanelLeft }) => (
   <Panel left cover themeDark onPanelBackdropClick={onClosePanelLeft}>
     <Page>
       <Navbar title='Left Panel' />
@@ -11,7 +11,6 @@ export default ({ onGoToAbout, onGoToForm, onClosePanelLeft }) => (
       <BlockTitle>Load page in main view</BlockTitle>
       <List>
         <ListItem link title='About' onClick={onGoToAbout} />
-        <ListItem link title='Form' onClick={onGoToForm} />
       </List>
     </Page>
   </Panel>
