@@ -5,9 +5,18 @@ import { showAlert } from 'framework7-redux'
 import { goBackNav, menuToSignUpNav } from '../../actions'
 import { feathersAuthentication } from '../../store'
 
+export const login = () => {
+  return (dispatch, getState) => {
+    dispatch(feathersAuthentication.authenticate(
+      { type: 'local', email: this.props.email, password: this.props.password }
+    ))
+      .catch(() => dispatch(showAlert('Incorrect email and password combination!".', 'Failed Login')))
+  }
+}
+
 class LoginScreenPopup extends Component {
   render () {
-    const { onGoToSignUp, onUsernameUpdated, onPasswordUpdated, onLogin, username, password, closeLogin } = this.props
+    const { onGoToSignUp, onEmailUpdated, onPasswordUpdated, onLogin, email, password, closeLogin } = this.props
     return (
       <LoginScreen id='login-screen'>
         <View>
@@ -22,13 +31,13 @@ class LoginScreenPopup extends Component {
             <LoginScreenTitle>Login</LoginScreenTitle>
             <List form>
               <ListItem>
-                <Label>Username</Label>
+                <Label>Email</Label>
                 <Input
-                  name='username'
-                  placeholder='Username'
-                  type='text'
-                  onChange={({ target }) => onUsernameUpdated(target.value)}
-                  value={username}
+                  name='email'
+                  placeholder='Email'
+                  type='email'
+                  onChange={({ target }) => onEmailUpdated(target.value)}
+                  value={email}
                 />
               </ListItem>
               <ListItem>
@@ -61,14 +70,15 @@ class LoginScreenPopup extends Component {
 
 const mapStateToProps = (state) => ({
   reduxState: state,
-  isAuthenticated: state.auth && state.auth.isSignedIn
+  isAuthenticated: state.auth && state.auth.isSignedIn,
+  email: state.auth && state.auth.user && state.auth.user.email
 })
 
 const mapDispatchToProps = (dispatch, { service }) => {
   return {
-    onLogin: () => dispatch(feathersAuthentication.authenticate(
-      // { type: 'local', email: values.username, password: values.password }
-    )),
+    onLogin: () => {},
+    onEmailUpdated: () => {},
+    onPasswordUpdated: () => {},
     closeLogin: () => dispatch(goBackNav()),
     onGoToSignUp: () => dispatch(menuToSignUpNav())
   }

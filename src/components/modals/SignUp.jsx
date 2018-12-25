@@ -2,10 +2,40 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Popup, View, Page, Navbar, NavRight, Link, Icon, BlockTitle, List, ListItem, Label, Input, Block, Row, Button } from 'framework7-react'
 import { goBackNav } from '../../actions'
+import { feathersClient } from '../../store'
 
 class SignUp extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      email: '',
+      checkbox: false
+    }
+  }
+
+  updateField (name, ev) {
+    this.setState({ [name]: ev.target.value })
+  }
+
+  switchCheckbox (name) {
+    if (this.state[name]) this.setState({ [name]: false })
+    else this.setState({ [name]: true })
+  }
+
+  signUp (ev) {
+    const { email, checkbox } = this.state
+    if (checkbox) {
+      feathersClient.service('/users').create({ email })
+        .then(() => {
+          const app = this.$f7
+          app.dialog.alert('Hello!')
+        })
+    }
+    ev.preventDefault()
+  }
+
   render () {
-    const { onClosePopup, onEmailUpdated, onOpenTerms, email } = this.props
+    const { onClosePopup, onOpenTerms } = this.props
     return (
       <Popup>
         <View>
@@ -25,16 +55,13 @@ class SignUp extends Component {
             <List form>
               <ListItem>
                 <Label>E-mail</Label>
-                <Input type='email' placeholder='E-mail' onChange={({ target }) => onEmailUpdated(target.value)} value={email} />
+                <Input type='email' placeholder='E-mail' value={this.state.email} onChange={ev => this.updateField('email', ev)} />
               </ListItem>
-              <ListItem checkbox name='my-checkbox' title='Agree to Terms of Service'
-                // onClick={() => onCheckboxUpdated('terms')}
-                // checked={checkboxGroup['checkbox']}
-              />
+              <ListItem checkbox name='terms-checkbox' title='Agree to Terms of Service' value={this.state.checkbox} onClick={() => this.switchCheckbox('checkbox')} />
             </List>
             <Block strong>
               <Row tag='p'>
-                <Button className='col' fill>Initiate Sign Up</Button>
+                <Button className='col' fill onClick={this.signUp.bind(this)}>Initiate Sign Up</Button>
               </Row>
             </Block>
           </Page>
@@ -51,7 +78,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => {
   return {
     onClosePopup: () => dispatch(goBackNav()),
-    onEmailUpdated: (email) => {},
     onOpenTerms: () => dispatch(goBackNav())
   }
 }
