@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Popup, View, Page, Navbar, NavRight, Link, Icon, BlockTitle, List, ListItem, ListInput, Block, Row, Button } from 'framework7-react'
+import { Popup, View, Page, Navbar, NavRight, Link, Icon, BlockTitle, List, ListItem, ListInput, Block, Row, Button, BlockFooter } from 'framework7-react'
 import { goBackNav } from '../../actions.js'
 import { feathersClient } from '../../feathers.js'
 
@@ -9,7 +9,8 @@ class SignUp extends Component {
     super(props)
     this.state = {
       email: '',
-      checkbox: false
+      checkbox: false,
+      error: ''
     }
   }
 
@@ -33,12 +34,16 @@ class SignUp extends Component {
             this.$f7router.navigate('/login/')
           })
         })
+        .catch(err => {
+          this.setState({ error: err.message })
+        })
     }
     ev.preventDefault()
   }
 
   render () {
     const { onClosePopup, onOpenTerms } = this.props
+    const { email, checkbox, error } = this.state
     return (
       <Popup>
         <View>
@@ -63,13 +68,13 @@ class SignUp extends Component {
                 placeholder='Email'
                 type='email'
                 onChange={ev => this.updateField('email', ev)}
-                value={this.state.email}
+                value={email}
               />
               <ListItem
                 checkbox
                 name='terms-checkbox'
                 title='Agree to Terms of Service'
-                value={this.state.checkbox}
+                value={checkbox}
                 onClick={() => this.switchCheckbox('checkbox')}
               />
             </List>
@@ -78,6 +83,9 @@ class SignUp extends Component {
                 <Button className='col' fill raised onClick={this.signUp.bind(this)}>Sign Up</Button>
               </Row>
             </Block>
+            <BlockFooter>
+              <p>{error}</p>
+            </BlockFooter>
           </Page>
         </View>
       </Popup>

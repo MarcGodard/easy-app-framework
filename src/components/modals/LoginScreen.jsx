@@ -5,10 +5,11 @@ import { showAlert } from 'framework7-redux'
 import { goBackNav, menuToSignUpNav } from '../../actions.js'
 import { feathersAuthentication } from '../../feathers.js'
 
-export const login = () => {
+const login = () => {
   return (dispatch, getState) => {
+    console.log(getState())
     dispatch(feathersAuthentication.authenticate(
-      { type: 'local', email: 'marc@l2t.co', password: '12345' }
+      { type: 'local', email: 'email@domain.com', password: '12345' }
     ))
       .catch(() => dispatch(showAlert('Incorrect email and password combination!".', 'Failed Login')))
   }
@@ -19,7 +20,8 @@ class LoginScreenPopup extends Component {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      message: 'Login with your Email and Password.'
     }
   }
 
@@ -29,6 +31,7 @@ class LoginScreenPopup extends Component {
 
   render () {
     const { onGoToSignUp, closeLogin, onLogin } = this.props
+    const { email, password, message } = this.state
     return (
       <LoginScreen id='login-screen'>
         <View>
@@ -49,7 +52,7 @@ class LoginScreenPopup extends Component {
                 placeholder='Email'
                 type='email'
                 onChange={ev => this.updateField('email', ev)}
-                value={this.state.email}
+                value={email}
               />
               <ListInput
                 label='Password'
@@ -58,7 +61,7 @@ class LoginScreenPopup extends Component {
                 type='password'
                 placeholder='Password'
                 onChange={ev => this.updateField('password', ev)}
-                value={this.state.password}
+                value={password}
               />
             </List>
             <Block>
@@ -70,7 +73,7 @@ class LoginScreenPopup extends Component {
               <ListButton title='Sign Up' onClick={onGoToSignUp} />
             </List>
             <BlockFooter>
-              <p>Login with your Email and Password.</p>
+              <p>{message}</p>
             </BlockFooter>
           </Page>
         </View>
