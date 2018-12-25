@@ -5,15 +5,27 @@ import { showAlert } from 'framework7-redux'
 import { goBackNav, menuToSignUpNav } from '../../actions.js'
 import { feathersAuthentication } from '../../feathers.js'
 
-const login = () => {
-  return (dispatch, getState) => {
-    console.log(getState())
-    dispatch(feathersAuthentication.authenticate(
-      { type: 'local', email: 'email@domain.com', password: '12345' }
-    ))
-      .catch(() => dispatch(showAlert('Incorrect email and password combination!".', 'Failed Login')))
-  }
-}
+// const login = () => {
+//   return (dispatch, getState) => {
+//     console.log(getState())
+//     dispatch(feathersAuthentication.authenticate(
+//       { type: 'local', email: 'email@domain.com', password: '12345' }
+//     ))
+//       .catch(() => dispatch(showAlert('Incorrect email and password combination!".', 'Failed Login')))
+//   }
+// }
+
+const login = (values, dispatch) => new Promise((resolve, reject) => {
+  dispatch(feathersAuthentication.authenticate(
+    { type: 'local', email: values.email, password: values.password }
+  ))
+    .then(() => resolve())
+    .catch(() => dispatch(showAlert('Incorrect email and password combination!".', 'Failed Login')))
+    // .catch(err => reject(err instanceof errors.BadRequest
+    //   ? new SubmissionError(Object.assign({}, err.errors, { _error: err.message || '' }))
+    //   : err
+    // ));
+})
 
 class LoginScreenPopup extends Component {
   constructor (props) {
@@ -89,7 +101,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, { service }) => {
   return {
-    onLogin: () => dispatch(login()),
+    onLogin: () => login(),
     closeLogin: () => dispatch(goBackNav()),
     onGoToSignUp: () => dispatch(menuToSignUpNav())
   }
