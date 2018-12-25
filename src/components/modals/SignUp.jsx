@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Popup, View, Page, Navbar, NavRight, Link, Icon, BlockTitle, List, ListItem, ListInput, Block, Row, Button } from 'framework7-react'
-import { goBackNav } from '../../actions'
-import { feathersClient } from '../../store'
+import { goBackNav } from '../../actions.js'
+import { feathersClient } from '../../feathers.js'
 
 class SignUp extends Component {
   constructor (props) {

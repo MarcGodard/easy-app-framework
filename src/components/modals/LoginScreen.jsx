@@ -2,21 +2,33 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Page, LoginScreen, LoginScreenTitle, List, ListButton, BlockFooter, Navbar, NavRight, Link, Icon, Block, Row, Button, ListInput } from 'framework7-react'
 import { showAlert } from 'framework7-redux'
-import { goBackNav, menuToSignUpNav } from '../../actions'
-import { feathersAuthentication } from '../../store'
+import { goBackNav, menuToSignUpNav } from '../../actions.js'
+import { feathersAuthentication } from '../../feathers.js'
 
 export const login = () => {
   return (dispatch, getState) => {
     dispatch(feathersAuthentication.authenticate(
-      { type: 'local', email: this.props.email, password: this.props.password }
+      { type: 'local', email: 'marc@l2t.co', password: '12345' }
     ))
       .catch(() => dispatch(showAlert('Incorrect email and password combination!".', 'Failed Login')))
   }
 }
 
 class LoginScreenPopup extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+
+  updateField (name, ev) {
+    this.setState({ [name]: ev.target.value })
+  }
+
   render () {
-    const { onGoToSignUp, onEmailUpdated, onPasswordUpdated, onLogin, email, password, closeLogin } = this.props
+    const { onGoToSignUp, closeLogin, onLogin } = this.props
     return (
       <LoginScreen id='login-screen'>
         <View>
@@ -36,8 +48,8 @@ class LoginScreenPopup extends Component {
                 name='email'
                 placeholder='Email'
                 type='email'
-                onChange={({ target }) => onEmailUpdated(target.value)}
-                value={email}
+                onChange={ev => this.updateField('email', ev)}
+                value={this.state.email}
               />
               <ListInput
                 label='Password'
@@ -45,8 +57,8 @@ class LoginScreenPopup extends Component {
                 name='password'
                 type='password'
                 placeholder='Password'
-                onChange={({ target }) => onPasswordUpdated(target.value)}
-                value={password}
+                onChange={ev => this.updateField('password', ev)}
+                value={this.state.password}
               />
             </List>
             <Block>
@@ -69,15 +81,12 @@ class LoginScreenPopup extends Component {
 
 const mapStateToProps = (state) => ({
   reduxState: state,
-  isAuthenticated: state.auth && state.auth.isSignedIn,
-  email: state.auth && state.auth.user && state.auth.user.email
+  isAuthenticated: state.auth && state.auth.isSignedIn
 })
 
 const mapDispatchToProps = (dispatch, { service }) => {
   return {
-    onLogin: () => {},
-    onEmailUpdated: () => {},
-    onPasswordUpdated: () => {},
+    onLogin: () => dispatch(login()),
     closeLogin: () => dispatch(goBackNav()),
     onGoToSignUp: () => dispatch(menuToSignUpNav())
   }

@@ -2,8 +2,8 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { App, View, Statusbar } from 'framework7-react'
 
-import routes from '../router/'
-import { store, stateKernel, persistor } from '../store/'
+import routes from '../routes.js'
+import { store, stateKernel, persistor } from '../store.js'
 import { PersistGate } from 'redux-persist/integration/react'
 
 // Framework7 parameters here

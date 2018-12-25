@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Page, Navbar, NavLeft, NavTitle, Link, Block } from 'framework7-react'
-import { openPanelLeft } from '../../actions'
+import { openPanelLeft } from '../../actions.js'
 
 class HomePage extends Component {
   render () {

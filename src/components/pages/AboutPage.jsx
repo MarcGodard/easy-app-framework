@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Page, Navbar, Link, Block, BlockTitle } from 'framework7-react'
-import { goBackNav } from '../../actions'
+import { goBackNav } from '../../actions.js'
 
 class AboutPage extends Component {
   render () {

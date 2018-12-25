@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Popup, View, Page, Navbar, NavRight, Link, Block, Icon } from 'framework7-react'
-import { goBackNav } from '../../actions'
+import { goBackNav } from '../../actions.js'
 
 class PopupPopup extends Component {
   render () {

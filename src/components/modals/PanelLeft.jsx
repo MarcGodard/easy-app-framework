@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Panel, Page, Navbar, List, ListItem } from 'framework7-react'
-import { goBackNav, menuToAboutNav, menuToLoginNav, menuToSignUpNav } from '../../actions'
-import { feathersAuthentication } from '../../store'
+import { goBackNav, menuToAboutNav, menuToLoginNav, menuToSignUpNav } from '../../actions.js'
+import { feathersAuthentication } from '../../feathers.js'
 
 class PanelLeft extends Component {
   render () {
