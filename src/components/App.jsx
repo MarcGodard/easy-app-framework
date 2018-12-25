@@ -32,7 +32,7 @@ export default () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <App params={f7params}>
+        <App colorTheme='green' params={f7params}>
           <Statusbar />
           <View id='main-view' url='/' main className='ios-edges' />
         </App>

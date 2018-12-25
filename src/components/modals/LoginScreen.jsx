@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Page, LoginScreen, LoginScreenTitle, List, ListItem, Label, Input, ListButton, BlockFooter, Navbar, NavRight, Link, Icon } from 'framework7-react'
+import { View, Page, LoginScreen, LoginScreenTitle, List, ListButton, BlockFooter, Navbar, NavRight, Link, Icon, Block, Row, Button, ListInput } from 'framework7-react'
 import { showAlert } from 'framework7-redux'
 import { goBackNav, menuToSignUpNav } from '../../actions'
 import { feathersAuthentication } from '../../store'
@@ -29,30 +29,32 @@ class LoginScreenPopup extends Component {
               </NavRight>
             </Navbar>
             <LoginScreenTitle>Login</LoginScreenTitle>
-            <List form>
-              <ListItem>
-                <Label>Email</Label>
-                <Input
-                  name='email'
-                  placeholder='Email'
-                  type='email'
-                  onChange={({ target }) => onEmailUpdated(target.value)}
-                  value={email}
-                />
-              </ListItem>
-              <ListItem>
-                <Label>Password</Label>
-                <Input
-                  name='password'
-                  type='password'
-                  placeholder='Password'
-                  onChange={({ target }) => onPasswordUpdated(target.value)}
-                  value={password}
-                />
-              </ListItem>
+            <List form noHairlinesMd>
+              <ListInput
+                label='Email'
+                floatingLabel
+                name='email'
+                placeholder='Email'
+                type='email'
+                onChange={({ target }) => onEmailUpdated(target.value)}
+                value={email}
+              />
+              <ListInput
+                label='Password'
+                floatingLabel
+                name='password'
+                type='password'
+                placeholder='Password'
+                onChange={({ target }) => onPasswordUpdated(target.value)}
+                value={password}
+              />
             </List>
+            <Block>
+              <Row tag='p'>
+                <Button className='col' fill raised onClick={onLogin}>Log In</Button>
+              </Row>
+            </Block>
             <List>
-              <ListButton title='Log In' onClick={onLogin} />
               <ListButton title='Sign Up' onClick={onGoToSignUp} />
             </List>
             <BlockFooter>
