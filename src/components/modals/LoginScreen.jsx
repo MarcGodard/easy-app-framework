@@ -58,11 +58,8 @@ class LoginScreenPopup extends Component {
               <ListButton title='Sign Up' onClick={onGoToSignUp} />
             </List>
             <BlockFooter>
-              <p>Click Sign In to see if you entered the correct password</p>
+              <p>Login with your Email and Password.</p>
             </BlockFooter>
-            <List>
-              <ListButton title='Cancel' onClick={closeLogin} />
-            </List>
           </Page>
         </View>
       </LoginScreen>

@@ -52,7 +52,7 @@ class SignUp extends Component {
             </Navbar>
             <BlockTitle>Sign Up Form</BlockTitle>
             <Block>
-              <p>Fill this form to receive a temporary password in your email and to sign up.</p>
+              <p>Fill this form to receive a temporary password in your email to login.</p>
               <p>You can view our terms of service by clicking <Link onClick={onOpenTerms}>here</Link>.</p>
             </Block>
             <List form noHairlinesMd>
@@ -75,7 +75,7 @@ class SignUp extends Component {
             </List>
             <Block>
               <Row tag='p'>
-                <Button className='col' fill raised onClick={this.signUp.bind(this)}>Initiate Sign Up</Button>
+                <Button className='col' fill raised onClick={this.signUp.bind(this)}>Sign Up</Button>
               </Row>
             </Block>
           </Page>
